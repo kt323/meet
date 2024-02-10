@@ -35,3 +35,7 @@ Feature 6: Display Charts Visualizing Event Details
 
 Scenario 1: Show a chart with the number of upcoming events in each city.
     - As an event organizer, I should be able to view a chart displaying the number of upcoming events in each city, so that I can assess the demand and popularity of events across different locations.
+
+SERVERLESS FUNCTION:
+-
+The serverless functions will handle the secure management of user access, acquiring and renewing OAuth2 tokens, and guaranteeing the safety of communications between your React application and the Google Calendar API. Utilizing a serverless framework provides advantages such as effortless scalability, optimal use of resources, and economic efficiency, as expenses are solely based on the execution of functions instead of maintaining dedicated server infrastructure.
