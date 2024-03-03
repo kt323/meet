@@ -1,14 +1,20 @@
-import { render, within, waitFor } from '@testing-library/react';
+import { render, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import CitySearch from '../components/CitySearch';
 import App from '../App';
 import { extractLocations, getEvents } from '../api';
 
-describe('<CitySearch /> component', () => {
+describe('<CitySearch /> component', ()=>{
   let CitySearchComponent;
-  beforeEach(() => {
-    CitySearchComponent = render(<CitySearch allLocations={[]}/>);
-  });
+  beforeEach(()=>{
+    CitySearchComponent = render(
+      <CitySearch
+        allLocations={[]}
+        setCurrentCity={() => {}}
+        setInfoAlert={() => {}}
+      />
+    );
+  })
     test('renders text input', () => {
       const cityTextBox = CitySearchComponent.queryByRole('textbox');
       expect(cityTextBox).toBeInTheDocument();
@@ -61,7 +67,13 @@ describe('<CitySearch /> component', () => {
       const user = userEvent.setup();
       const allEvents = await getEvents(); 
       const allLocations = extractLocations(allEvents);
-      CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+      CitySearchComponent.rerender(
+        <CitySearch
+        allLocations={allLocations}
+        setCurrentCity={() => {}}
+        setInfoAlert={() => {}}
+      />
+        );
   
       const cityTextBox = CitySearchComponent.queryByRole('textbox');
       await user.type(cityTextBox, "Berlin");
@@ -87,10 +99,8 @@ describe('<CitySearch /> component', () => {
         const allEvents = await getEvents();
         const allLocations = extractLocations(allEvents);
       
-        await waitFor(() => {
-          const suggestionListItems = within(CitySearchDOM).queryAllByRole('listitem');
-          expect(suggestionListItems.length).toBe(allLocations.length + 1);
+        const suggestionListItems = within(CitySearchDOM).queryAllByRole('listitem');
+        expect(suggestionListItems.length).toBe(allLocations.length + 1);
          });
-       });
-      });
+       })
       
