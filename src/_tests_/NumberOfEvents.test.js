@@ -24,7 +24,7 @@ describe('<NumberOfEvents /> component', () => {
     const user = userEvent.setup();
     await user.type(numberOfEvents, '{backspace}{backspace}10');
     expect(numberOfEvents).toHaveValue('10');
-    expect(setErrorAlert).toHaveBeenCalledWith(''); 
+
   })
 
   

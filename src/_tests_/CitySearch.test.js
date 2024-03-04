@@ -7,15 +7,16 @@ import { extractLocations, getEvents } from '../api';
 describe('<CitySearch /> component', ()=>{
   let CitySearchComponent;
   beforeEach(()=>{
-    CitySearchComponent = render(
-      <CitySearch
-        allLocations={[]}
-        setCurrentCity={() => {}}
-        setInfoAlert={() => {}}
-      />
-    );
+    // CitySearchComponent = render(
+    //   <CitySearch
+    //     allLocations={[]}
+    //     setCurrentCity={() => {}}
+    //     setInfoAlert={() => {}}
+    //   />
+    // );
   })
     test('renders text input', () => {
+      const CitySearchComponent = render(<CitySearch />);
       const cityTextBox = CitySearchComponent.queryByRole('textbox');
       expect(cityTextBox).toBeInTheDocument();
       expect(cityTextBox).toHaveClass('city');
