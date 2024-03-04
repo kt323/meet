@@ -65,28 +65,22 @@ describe('<CitySearch /> component', ()=>{
       }
     });
 
-    // test('renders the suggestion text in the textbox upon clicking on the suggestion', async () => {
-    //   const user = userEvent.setup();
-    //   const allEvents = await getEvents(); 
-    //   const allLocations = extractLocations(allEvents);
-    //   CitySearchComponent.rerender(
-    //     <CitySearch
-    //     allLocations={allLocations}
-    //     setCurrentCity={() => {}}
-    //     setInfoAlert={() => {}}
-    //   />
-    //     );
+    test('renders the suggestion text in the textbox upon clicking on the suggestion', async () => {
+      const user = userEvent.setup();
+      const allEvents = await getEvents(); 
+      const allLocations = extractLocations(allEvents);
+      const CitySearchComponent = render(<CitySearch allLocations={ [ 'London, UK', 'Berlin, Germany' ]} setCurrentCity={() => {}} />);
   
-    //   const cityTextBox = CitySearchComponent.queryByRole('textbox');
-    //   await user.type(cityTextBox, "Berlin");
+      const cityTextBox = CitySearchComponent.queryByRole('textbox');
+      await user.type(cityTextBox, "Berlin");
   
-    //   const BerlinGermanySuggestion = CitySearchComponent.queryAllByRole('listitem')[0];
+      const BerlinGermanySuggestion = CitySearchComponent.queryAllByRole('listitem')[0];
   
-    //   await user.click(BerlinGermanySuggestion);
+      await user.click(BerlinGermanySuggestion);
   
-    //   expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
-    // });
-    // });
+      expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
+    });
+
 
     // describe('<CitySearch /> integration', () => {
     //   test('renders suggestions list when the app is rendered.', async () => {
