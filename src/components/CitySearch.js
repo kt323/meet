@@ -6,6 +6,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
   const [suggestions, setSuggestions] = useState([]);
 
   useEffect(() => {
+    console.log(allLocations)
     setSuggestions(allLocations);
   }, [allLocations]);
 
