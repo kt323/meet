@@ -44,25 +44,26 @@ describe('<CitySearch /> component', ()=>{
         expect(cityTextBox).toHaveClass('city');
     });
 
-    // test('updates list of suggestions correctly when user types in city textbox', async () => {
-    //   const user = userEvent.setup();
-    //   const allEvents = await getEvents();
-    //   const allLocations = extractLocations(allEvents);
-    //   CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
+    test('updates list of suggestions correctly when user types in city textbox', async () => {
+      const user = userEvent.setup();
+      const allEvents = await getEvents();
+      const allLocations = extractLocations(allEvents);
+      const CitySearchComponent = render(<CitySearch allLocations={ [ 'London, UK', 'Berlin, Germany' ]} />);
+      CitySearchComponent.rerender(<CitySearch allLocations={allLocations} />);
   
-    //   const cityTextBox = CitySearchComponent.queryByRole('textbox');
-    //   await user.type(cityTextBox, "Berlin");
+      const cityTextBox = CitySearchComponent.queryByRole('textbox');
+      await user.type(cityTextBox, "Berlin");
   
-    //   const suggestions = allLocations? allLocations.filter((location) => {
-    //     return location.toUpperCase().indexOf(cityTextBox.value.toUpperCase()) > -1;
-    //   }): [];
+      const suggestions = allLocations? allLocations.filter((location) => {
+        return location.toUpperCase().indexOf(cityTextBox.value.toUpperCase()) > -1;
+      }): [];
   
-    //   const suggestionListItems = CitySearchComponent.queryAllByRole('listitem');
-    //   expect(suggestionListItems).toHaveLength(suggestions.length + 1);
-    //   for (let i = 0; i < suggestions.length; i += 1) {
-    //     expect(suggestionListItems[i].textContent).toBe(suggestions[i]);
-    //   }
-    // });
+      const suggestionListItems = CitySearchComponent.queryAllByRole('listitem');
+      expect(suggestionListItems).toHaveLength(suggestions.length + 1);
+      for (let i = 0; i < suggestions.length; i += 1) {
+        expect(suggestionListItems[i].textContent).toBe(suggestions[i]);
+      }
+    });
 
     // test('renders the suggestion text in the textbox upon clicking on the suggestion', async () => {
     //   const user = userEvent.setup();
@@ -103,5 +104,4 @@ describe('<CitySearch /> component', ()=>{
     //     const suggestionListItems = within(CitySearchDOM).queryAllByRole('listitem');
     //     expect(suggestionListItems.length).toBe(allLocations.length + 1);
     //      });
-    //    })
-      
+       })
