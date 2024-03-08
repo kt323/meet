@@ -1,13 +1,12 @@
 import { render } from '@testing-library/react';
 import mockData from '../mock-data';
 import Event from '../components/Event';
-import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
 
 
 describe('<Event /> component', () => {
     let EventComponent;
-    const event = mockData[0].items[0];
+    const event = mockData[0];
     beforeEach(() => {
         EventComponent = render(<Event event={event} />);
     });
