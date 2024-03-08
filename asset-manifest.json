@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/kt323/meet.git/static/css/main.f855e6bc.css",
-    "main.js": "/kt323/meet.git/static/js/main.69937231.js",
+    "main.js": "/kt323/meet.git/static/js/main.cb652e80.js",
     "static/js/592.b7cdff91.chunk.js": "/kt323/meet.git/static/js/592.b7cdff91.chunk.js",
     "service-worker.js": "/kt323/meet.git/service-worker.js",
     "index.html": "/kt323/meet.git/index.html",
     "main.f855e6bc.css.map": "/kt323/meet.git/static/css/main.f855e6bc.css.map",
-    "main.69937231.js.map": "/kt323/meet.git/static/js/main.69937231.js.map",
+    "main.cb652e80.js.map": "/kt323/meet.git/static/js/main.cb652e80.js.map",
     "592.b7cdff91.chunk.js.map": "/kt323/meet.git/static/js/592.b7cdff91.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.69937231.js"
+    "static/js/main.cb652e80.js"
   ]
 }
