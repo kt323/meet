@@ -29,18 +29,22 @@ defineFeature(feature, test => {
         let EventComponent;
         let allEvents;
         given('there is an event with hidden details', async () => {
-            allEvents = await getEvents();
-            EventComponent = render(<Event event={allEvents[0]} />);
+            allEvents = await getEvents(); 
+            
         });
 
-        when('the user clicks on the event to show details', async () => {
-            await waitFor(() => {
-                userEvent.click(EventComponent.getByText('show details'));
-            });
+        when('the user clicks on the event to Show Details', async () => {
+            // await waitFor(() => {
+            //     userEvent.click(EventComponent.getByText('Show Details'));
+            // });
+            EventComponent = render(<Event event={allEvents[0]} />);
+            const user = userEvent.setup();
+            const button = EventComponent.queryByText('Show Details');
+            await user.click(button);
         });
 
         then('the app should display the details of the event', () => {
-            expect(EventComponent.queryByText('hide details')).toBeInTheDocument();
+            expect(EventComponent.queryByText('Hide Details')).toBeInTheDocument();
         });
     });
 
@@ -48,20 +52,30 @@ defineFeature(feature, test => {
     test('User clicks to hide event details.', ({ given, when, then }) => {
         let EventComponent;
         let allEvents;
+        let user;
+        let button;
         given('there is an event with displayed details', async () => {
             allEvents = await getEvents();
+            // EventComponent = render(<Event event={allEvents[0]} />);
+            // userEvent.click(EventComponent.getByText('Show Details'));
             EventComponent = render(<Event event={allEvents[0]} />);
-            userEvent.click(EventComponent.getByText('show details'));
+            user = userEvent.setup();
+            button = EventComponent.queryByText('Show Details');
+            await user.click(button);
         });
 
         when('the user clicks on the event to hide details again', async () => {
-            await waitFor(() => {
-                userEvent.click(EventComponent.getByText('hide details'));
-            });
+            // await waitFor(() => {
+            //     userEvent.click(EventComponent.getByText('Hide Details'));
+            // });
+            EventComponent = render(<Event event={allEvents[0]} />);
+            user = userEvent.setup();
+            button = EventComponent.queryByText('Hide Details');
+            await user.click(button);
         });
 
         then('the app should hide the details of the event', () => {
-            expect(EventComponent.queryByText('hide details')).not.toBeInTheDocument();
+            expect(EventComponent.queryByText('details')).not.toBeInTheDocument();
         });
     });
 });
