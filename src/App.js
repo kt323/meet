@@ -1,18 +1,23 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import './App.css';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
-import { InfoAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
+import CityEventsChart from './components/CityEventsChart';
+import EventGenresChart from './components/EventGenresChart';
 
-import './App.css';
 
-const App = () => {
-  const [allLocations, setAllLocations] = useState([]);
-  const [currentNOE, setCurrentNOE] = useState(32);
+function App() {
   const [events, setEvents] = useState([]);
-  const [currentCity, setCurrentCity] = useState("See all cities");
+  const [currentNOE, setCurrentNOE] = useState(32);
+  const [allLocations, setAllLocations] = useState([]);
+  const [currentCity, setCurrentCity] = useState('See all cities');
   const [infoAlert, setInfoAlert] = useState("");
+  const [errorAlert, setErrorAlert] = useState('');
+  const [warningAlert, setWarningAlert] = useState('');
+
 
   const fetchData = async () => {
     try {
