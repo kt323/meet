@@ -66,7 +66,7 @@ function App() {
         >
           <b>See all cities</b>
         </li>
-      </ul>
+      </ul>ƒ
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} />
       <NumberOfEvents setNumberOfEvents={setCurrentNOE} 
         setInfoAlert={setInfoAlert}
@@ -76,7 +76,7 @@ function App() {
       <div className='charts-container'>
         <EventGenresChart events={events}/>
         <CityEventsChart allLocations={allLocations} events={events} />
-      </div>
+      </div>ƒ
       
       <EventList events={events} />
     </div>
