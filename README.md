@@ -39,3 +39,4 @@ Scenario 1: Show a chart with the number of upcoming events in each city.
 SERVERLESS FUNCTION:
 -
 The serverless functions will handle the secure management of user access, acquiring and renewing OAuth2 tokens, and guaranteeing the safety of communications between your React application and the Google Calendar API. Utilizing a serverless framework provides advantages such as effortless scalability, optimal use of resources, and economic efficiency, as expenses are solely based on the execution of functions instead of maintaining dedicated server infrastructure.
+
