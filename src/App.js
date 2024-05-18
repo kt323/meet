@@ -3,6 +3,7 @@ import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
+import PieChartComponent from './components/PieChartComponent';
 
 import './App.css';
 
@@ -33,7 +34,11 @@ const App = () => {
       <NumberOfEvents 
       setCurrentNOE={setCurrentNOE}
       />
+      <PieChartComponent width="100%" height="100%">
+
+      </PieChartComponent>
       <EventList events={events} />
+      
     </div>
   );
 }
